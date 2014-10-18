@@ -1,0 +1,21 @@
+" vim: set ft=vim :
+
+set filetype=tex
+set fileencoding=utf8
+set expandtab
+set shiftwidth=2
+set tabstop=2
+set softtabstop=2
+set textwidth=80
+
+let g:Tex_DefaultTargetFormat = 'pdf'
+let g:Tex_ViewRule_pdf = 'xdg-open'
+let g:Tex_UseMakefile = 1
+"let g:Tex_CompileRule_pdf = 'lualatex -interaction=nonstopmode $*'
+
+if exists('g:loaded_vimchant')
+  let g:vimchant_spellcheck_lang = 'tr'
+  "<Leader>ss      Spell-checking on/off
+  "<Leader>sl      Change the language (prompts for language code)
+  "where <Leader> is `mapleader' = ','
+endif

@@ -1,0 +1,145 @@
+% vim: set filetype=tex fileencoding=utf8 et sw=2 ts=2 sts=2 tw=80 :
+% © 2014 Ali Polatel <polatel@gmail.com>
+% Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported Lisansı ile yayınlanmıştır.
+
+\documentclass[12pt,a4paper,oneside,article]{memoir}
+\setulmarginsandblock{3cm}{3cm}{*}
+\setlrmarginsandblock{4cm}{2.5cm}{*}
+\checkandfixthelayout
+\fixpdflayout
+\usepackage[T1]{fontenc}
+\usepackage[turkish]{babel}
+
+\usepackage{fontspec}
+\defaultfontfeatures{Ligatures=TeX}
+%\usepackage{unicode-math}
+%\setmathfont[Script=Latin,Language=Turkish]{Tex Gyre Pagella Math}
+\setmainfont[Script=Latin,Language=Turkish]{TeX Gyre Termes}
+\setsansfont[Script=Latin,Language=Turkish]{TeX Gyre Termes}
+
+\abstractintoc
+
+\usepackage[round]{natbib}
+\usepackage{babelbib}
+\usepackage{tocbibind}
+\bibliographystyle{plainnat}
+\bibintoc
+
+\cftinsertcode{toc}{\renewcommand*{\cftappendixname}{Ek \space}}
+\renewcommand*{\appendixname}{Ek \space}
+\renewcommand*{\appendixpagename}{Ekler}
+\renewcommand*{\appendixtocname}{\appendixpagename}
+\renewcommand*{\cftappendixname}{Ek \space}
+
+\usepackage{graphicx}
+\DeclareGraphicsExtensions{.jpg,.png}
+
+\usepackage{multicol}
+\usepackage{pdfpages}
+\usepackage{indentfirst}
+\usepackage[xspace]{ellipsis}
+
+\pretitle{\begin{center}\vfill\Large\bfseries}
+\title{Bilim Kurgu Çevirisi:\\All You Zombies, Robert A. Heinlein}
+\posttitle{\par\end{center}\vspace{4em}}
+\preauthor{\begin{center}\vfill}
+\author{Al\.{}\kern-.3emi Polatel} % textsc{} & iİ conflict.
+\postauthor{\\1101207005\par\end{center}}
+\predate{\par\vfill\begin{center}}
+\date{Edirne, 2014} % lazy.
+\postdate{\par\end{center}}
+
+\renewcommand{\maketitlehooka}{%
+  \begin{center}
+    T.C.\xspace\\
+    Trakya Üniversitesi\xspace\\
+    Edebiyat Fakültesi Mütercim Tercümanlık Bölümü\xspace\\
+    İngilizce Mütercim Tercümanlık Ana Bilim Dalı\xspace\\
+    Çeviri Projesi\xspace\\[1cm]
+
+    \shorthandoff{=}
+    \includegraphics[width=2.5cm]{trakya}  % Üniversite logosu
+    \shorthandon{=}
+  \end{center}
+}
+\renewcommand{\maketitlehookc}{%
+  \begin{center}
+    \vspace{1em}
+    \textbf{Danışman}\xspace\\
+    Öğr. Gör. İnönü Korkmaz\xspace
+  \end{center}
+}
+
+\newenvironment{dedication}
+  {\clearpage           % we want a new page
+   \thispagestyle{empty}% no header and footer
+   \addcontentsline{toc}{chapter}{İthaf} % Add to TOC
+   \vspace*{\stretch{1}}% some space at the top 
+   \centering           % 
+  }
+  {\par % end the paragraph
+   \vspace{\stretch{3}} % space at bottom is three times that at the top
+   \clearpage           % finish off the page
+  }
+
+\usepackage[unicode]{hyperref}
+\hypersetup{%
+    hyperfootnotes=true,
+    breaklinks=true,
+    colorlinks=true,
+    urlcolor=black,
+    citecolor=black,
+    linkcolor=black,
+    pdftitle={Bilim Kurgu Çevirisi: ``All You Zombies'', Robert Heinlein},
+    pdfauthor={Ali Polatel},
+    pdfsubject={Ali Polatel, Lisans Bitirme Ödevi, Çeviri Projesi},
+    pdflang={tr},
+    pdfkeywords={robert heinlein, çeviri, bilim kurgu, bilim kurgu çevirisi, erek metin odaklı çeviri},
+    pdfproducer={LuaLaTeX, BibTeX, hyperref, memoir},
+    pdfpagelabels=true
+    pdfborder={0 0 0},
+}
+\pdfcompresslevel=9
+
+\begin{document}
+
+\OnehalfSpacing
+
+\calccentering{\unitlength}
+\begin{adjustwidth*}{\unitlength}{-\unitlength}
+  \begin{adjustwidth}{-1cm}{-1cm}
+    \begin{titlingpage}
+      \maketitle
+    \end{titlingpage}
+  \end{adjustwidth}
+\end{adjustwidth*}
+
+\frontmatter
+
+\include{önsöz}
+
+\include{nünü}
+
+\include{teşekkür}
+
+\tableofcontents
+
+\mainmatter
+\pagestyle{simple}
+\chapterstyle{ntglike}
+
+\include{giriş}
+\include{çeviri}
+\include{sonuç}
+\aliaspagestyle{part}{simple}
+\appendix
+\appendixpage
+\addappheadtotoc
+\aliaspagestyle{part}{}
+\include{ekler}
+
+\backmatter
+\include{sonsöz}
+\bibliography{Heinlein-All-You-Zombies-tr-alip}
+
+\end{document}
